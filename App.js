@@ -1,22 +1,16 @@
-import React, {Fragment} from 'react';
-import {SafeAreaView, View} from 'react-native';
-import theme from './src/styles/theme.style';
-import StatusBarColor from './src/components/StatusBar';
-import HomeGreeting from './src/components/homeScreen/homeGreeting';
+import 'react-native-gesture-handler';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+
+import Notch from './src/components/DeviceNotch';
+import TabBar from './src/components/TabBar';
 
 const LifeListApp = () => {
   return (
-    <Fragment>
-      <StatusBarColor
-        backgroundColor={theme.blue_jay_white}
-        barStyle="dark-content"
-      />
-      <SafeAreaView>
-        <View>
-          <HomeGreeting name="Kenny" />
-        </View>
-      </SafeAreaView>
-    </Fragment>
+    <NavigationContainer>
+      <Notch barStyle="dark-content" />
+      <TabBar />
+    </NavigationContainer>
   );
 };
 
