@@ -55,6 +55,21 @@ npm run android
 
 > Note: Android Studio must be installed to run and Android emulator and XCode must be installed to run an iOS emulator
 
+### Updating Version
+Follow the [npm-version standards](https://docs.npmjs.com/cli/v7/commands/npm-version) for a version bump chore.
+```
+# 1.0.0 -> 1.0.1
+npm version patch
+
+# 1.0.0 -> 1.1.0
+npm version minor
+
+# 1.0.0 -> 2.0.0
+npm version major
+```
+
+> Note: All version bumps should be accompanied by a [Github release](https://github.com/isaiahcolson/lifelistapp/releases).
+
 <!-- ## Usage -->
 <!-- TODO: as the application gets built out, add workflow here. -->
 
