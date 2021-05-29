@@ -55,6 +55,10 @@ npm run android
 
 > Note: Android Studio must be installed to run and Android emulator and XCode must be installed to run an iOS emulator
 
+### Installed Packages
+- [React Navigation](https://reactnavigation.org/docs/getting-started/)
+- [React Native Tab Navigation](https://reactnavigation.org/docs/tab-based-navigation/)
+
 ### Updating Version
 Follow the [npm-version standards](https://docs.npmjs.com/cli/v7/commands/npm-version) for a version bump chore.
 ```
