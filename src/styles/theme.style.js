@@ -19,4 +19,7 @@ export default {
   font_weight_normal: '400',
   font_weight_semibold: '500',
   font_weight_bold: '700',
+
+  /* FLEX SIZES */
+  flex_one: 1,
 };
