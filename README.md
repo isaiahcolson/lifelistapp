@@ -5,10 +5,12 @@
 
   1. [About the Project](#about-the-project)
       - [Built With](#built-with)
+  2. [Getting Started](#getting-started)
+      - [Installation](#installation)
   <!-- 2. [Usage](#usage) -->
-  2. [Report an Issue](#report-an-issue)
+  3. [Report an Issue](#report-an-issue)
   <!-- 4. [License](#license) -->
-  3. [Created By](#created-by)
+  4. [Created By](#created-by)
 </details>
 
 ## About the Project
@@ -18,6 +20,40 @@ Life List is a mobile application where a birder can track their cumulative reco
 This application is built with a react-native front-end.
 
 - [React Native](https://reactnative.dev/)
+
+## Getting Started
+This application was created using React Native, you can follow their [Setting up the development environment](https://reactnative.dev/docs/environment-setup) guide to get started.
+
+> Note: This application was created using `React Native CLI Quickstart`
+
+### Installation
+1. Clone this repo
+```
+git clone git@github.com:isaiahcolson/lifelistapp.git
+```
+2. Install npm packages
+```
+npm install
+```
+3. Start the application
+```
+npm start
+```
+or you can run
+```
+npx react-native start
+```
+4. Run your device(s)
+For iPhone:
+```
+npm run ios
+```
+For Android:
+```
+npm run android
+```
+
+> Note: Android Studio must be installed to run and Android emulator and XCode must be installed to run an iOS emulator
 
 <!-- ## Usage -->
 <!-- TODO: as the application gets built out, add workflow here. -->
