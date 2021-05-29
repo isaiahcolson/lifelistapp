@@ -9,7 +9,7 @@ import Profile from '../screens/Profile';
 const tabs = createBottomTabNavigator();
 
 const TabBar = () => (
-  <tabs.Navigator tabBarOptions={{showLabel: false}}>
+  <tabs.Navigator tabBarOptions={{showLabel: false, style: {height: 60}}}>
     <tabs.Screen
       name="Home"
       component={Home}
@@ -20,8 +20,8 @@ const TabBar = () => (
               source={require('../../assets/icons/icon-home.png')}
               resizeMode="contain"
               style={{
-                width: theme.font_size_6,
-                height: theme.font_size_6,
+                width: theme.font_size_7,
+                height: theme.font_size_7,
                 tintColor: focused
                   ? theme.blue_jay_black
                   : theme.blue_jay_gray_2,
@@ -41,8 +41,8 @@ const TabBar = () => (
               source={require('../../assets/icons/icon-profile.png')}
               resizeMode="contain"
               style={{
-                width: theme.font_size_6,
-                height: theme.font_size_6,
+                width: theme.font_size_7,
+                height: theme.font_size_7,
                 tintColor: focused
                   ? theme.blue_jay_black
                   : theme.blue_jay_gray_2,
