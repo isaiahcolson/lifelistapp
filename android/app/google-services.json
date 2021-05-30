@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "17901903505",
+    "project_id": "lifelist-app",
+    "storage_bucket": "lifelist-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17901903505:android:0f3cd308a5e3b0ba6ce930",
+        "android_client_info": {
+          "package_name": "com.lifelist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17901903505-m8nks35pusjohqcm70gih2cq8bkrrkm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD37zkdtZmrWISNMmP-Z0UHIAf7PHtH2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17901903505-m8nks35pusjohqcm70gih2cq8bkrrkm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
