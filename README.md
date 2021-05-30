@@ -58,6 +58,7 @@ npm run android
 ### Installed Packages
 - [React Navigation](https://reactnavigation.org/docs/getting-started/)
 - [React Native Tab Navigation](https://reactnavigation.org/docs/tab-based-navigation/)
+- [React Native Firebase](https://rnfirebase.io/)
 
 ### Updating Version
 Follow the [npm-version standards](https://docs.npmjs.com/cli/v7/commands/npm-version) for a version bump chore.
