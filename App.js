@@ -1,17 +1,9 @@
-import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 
-import Notch from './src/components/DeviceNotch';
-import TabBar from './src/components/TabBar';
+import Providers from './src/navigation';
 
 const LifeListApp = () => {
-  return (
-    <NavigationContainer>
-      <Notch barStyle="dark-content" />
-      <TabBar />
-    </NavigationContainer>
-  );
+  return <Providers />;
 };
 
 export default LifeListApp;
