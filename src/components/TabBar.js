@@ -3,8 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, View} from 'react-native';
 
 import theme from '../styles/theme.style';
-import Home from '../screens/Home';
-import Profile from '../screens/Profile';
+import HomeScreen from '../screens/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const tabs = createBottomTabNavigator();
 
@@ -12,7 +12,7 @@ const TabBar = () => (
   <tabs.Navigator tabBarOptions={{showLabel: false, style: {height: 60}}}>
     <tabs.Screen
       name="Home"
-      component={Home}
+      component={HomeScreen}
       options={{
         tabBarIcon: ({focused}) => (
           <View>
@@ -33,7 +33,7 @@ const TabBar = () => (
     />
     <tabs.Screen
       name="Profile"
-      component={Profile}
+      component={ProfileScreen}
       options={{
         tabBarIcon: ({focused}) => (
           <View>
