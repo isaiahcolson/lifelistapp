@@ -35,7 +35,8 @@ git clone git@github.com:isaiahcolson/lifelistapp.git
 ```
 npm install
 ```
-3. Start the application
+3. You will be missing the dotenv file with the `GOOGLE_TOKEN` value, ask the code owner for that value.
+4. Start the application
 ```
 npm start
 ```
@@ -43,7 +44,7 @@ or you can run
 ```
 npx react-native start
 ```
-4. Run your device(s)
+5. Run your device(s)
 For iPhone:
 ```
 npm run ios
