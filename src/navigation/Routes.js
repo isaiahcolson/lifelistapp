@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
 import {AuthContext} from './AuthProvider';
-import TabBar from '../components/TabBar';
+import TabBar from './TabBar';
 import AuthStackScreen from './AuthStackScreen';
 
 const Routes = () => {
