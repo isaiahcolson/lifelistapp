@@ -59,6 +59,8 @@ npm run android
 - [React Navigation](https://reactnavigation.org/docs/getting-started/)
 - [React Native Tab Navigation](https://reactnavigation.org/docs/tab-based-navigation/)
 - [React Native Firebase](https://rnfirebase.io/)
+- [React Native Google Sign In](https://github.com/react-native-google-signin/google-signin#project-setup-and-initialization)
+- [React Native dotenv](https://github.com/goatandsheep/react-native-dotenv)
 
 ### Updating Version
 Follow the [npm-version standards](https://docs.npmjs.com/cli/v7/commands/npm-version) for a version bump chore.
