@@ -25,6 +25,7 @@ This application is built with a react-native front-end.
 - [React Native](https://reactnative.dev/)
 
 ## Getting Started
+
 This application was created using React Native, you can follow their [Setting up the development environment](https://reactnative.dev/docs/environment-setup) guide to get started.
 
 > Note: This application was created using `React Native CLI Quickstart`
@@ -70,6 +71,7 @@ npm run android
 > Note: Android Studio must be installed to run and Android emulator and XCode must be installed to run an iOS emulator
 
 ### Installed Packages
+
 - [React Navigation](https://reactnavigation.org/docs/getting-started/)
 - [React Native Tab Navigation](https://reactnavigation.org/docs/tab-based-navigation/)
 - [React Native Firebase](https://rnfirebase.io/)
@@ -96,6 +98,7 @@ npm version major
 ## Linting & Testing
 
 ### ESLint
+
 This application uses [ESLint](https://eslint.org/) which is a static code analysis tool for identifying problematic patterns found in JavaScript. Use the following commands to run ESLint on all .js files in root:
 
 ```
@@ -104,6 +107,7 @@ yarn lint
 ```
 
 ### Jest
+
 This application uses [Jest](https://jestjs.io/) which is a testing framework designed to ensure correctness of any JavaScript codebase. Use the following commands to run this project's tests:
 
 ```
@@ -118,11 +122,13 @@ yarn test
 <!-- TODO: as the application gets built out, add workflow here. -->
 
 ## Report an Issue
+
 If you have a bug or an idea, browse the [open issues](https://github.com/isaiahcolson/lifelistapp/issues) before opening a new one.
 
 <!-- ## License -->
 <!-- TODO: do we need a license? -->
 
 ## Created By
+
 - Isaiah Colson - [@isaiahcolson](https://github.com/isaiahcolson)
 - [Project Link](https://github.com/isaiahcolson/lifelistapp)
