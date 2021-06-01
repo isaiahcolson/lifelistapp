@@ -10,7 +10,7 @@ const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const {register} = useContext(AuthContext);
+  const {googleLogin, register} = useContext(AuthContext);
 
   return (
     <View>
@@ -43,7 +43,7 @@ const SignupScreen = ({navigation}) => {
 
       <SocialButton
         buttonTitle="Sign up with Google"
-        onPress={() => alert('Sign up with Google button clicked.')}
+        onPress={() => googleLogin()}
       />
 
       <FormButton
