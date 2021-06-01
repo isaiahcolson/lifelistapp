@@ -10,7 +10,7 @@ const SigninScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const {login, googleLogin} = useContext(AuthContext);
+  const {googleLogin, login} = useContext(AuthContext);
 
   return (
     <View>
@@ -41,10 +41,9 @@ const SigninScreen = ({navigation}) => {
         onPress={() => login(email, password)}
       />
 
-      <FormButton
-        buttonTitle="Forgot Password"
-        onPress={() => alert('Forgot password button clicked.')}
-      />
+      {/* eslint-disable no-alert */}
+      <FormButton buttonTitle="Forgot Password" onPress={() => alert('TODO')} />
+      {/* eslint-enable no-alert */}
 
       <SocialButton
         buttonTitle="Sign in with Google"
