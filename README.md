@@ -96,6 +96,7 @@ npm version major
 ## Linting & Testing
 
 ### ESLint
+
 This application uses [ESLint](https://eslint.org/) which is a static code analysis tool for identifying problematic patterns found in JavaScript. Use the following commands to run ESLint on all .js files in root:
 
 ```
@@ -104,6 +105,7 @@ yarn lint
 ```
 
 ### Jest
+
 This application uses [Jest](https://jestjs.io/) which is a testing framework designed to ensure correctness of any JavaScript codebase. Use the following commands to run this project's tests:
 
 ```
