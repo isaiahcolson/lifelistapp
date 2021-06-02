@@ -4,10 +4,11 @@ import {Text, View} from 'react-native';
 import {AuthContext} from '../navigation/AuthProvider';
 import FormButton from '../components/FormComponents/FormButton';
 import FormInput from '../components/FormComponents/FormInput';
-import SocialButton from '../components/FormComponents/SocialButton';
+import IconButton from '../components/FormComponents/IconButton';
 import AuthStyles from '../styles/AuthStyles';
 import FormStyles from '../styles/FormStyles';
 import styles from '../styles/styles';
+import iconList from '../../assets/iconList';
 
 const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState();
@@ -49,10 +50,11 @@ const SignupScreen = ({navigation}) => {
         onPress={() => register(email, password)}
       />
 
-      <SocialButton
-        buttonTitle="Sign up with Google"
+      <IconButton
         onPress={() => googleLogin()}
-        buttonStyle={AuthStyles.socialButton}
+        buttonIcon={iconList.googleIcon}
+        buttonStyle={AuthStyles.iconButton}
+        buttonTitle="Sign up with Google"
       />
 
       <View style={FormStyles.inlineButtonGroup}>
