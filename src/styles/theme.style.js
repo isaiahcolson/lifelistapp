@@ -34,6 +34,9 @@ export default {
   spacing_3: 24,
   spacing_4: 32,
   spacing_5: 40,
+  spacing_6: 48,
   // flex
   flex_one: 1,
+  // border radius
+  radius_4: 4,
 };

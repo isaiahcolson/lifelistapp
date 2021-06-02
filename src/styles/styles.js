@@ -33,6 +33,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  standardScreen: {
+    backgroundColor: theme.blue_jay_white,
+    flex: theme.flex_one,
+    justifyContent: 'center',
+    padding: theme.spacing_5,
+  },
 });
 
 export default styles;

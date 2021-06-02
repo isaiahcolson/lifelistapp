@@ -1,9 +1,9 @@
 import React from 'react';
 import {Pressable, Text} from 'react-native';
 
-const FormButton = ({buttonTitle, ...props}) => (
+const FormButton = ({buttonStyle, buttonTitle, ...props}) => (
   <Pressable {...props}>
-    <Text>{buttonTitle}</Text>
+    <Text style={buttonStyle}>{buttonTitle}</Text>
   </Pressable>
 );
 
