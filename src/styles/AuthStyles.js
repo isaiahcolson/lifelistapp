@@ -10,7 +10,7 @@ const AuthStyles = StyleSheet.create({
     fontWeight: theme.font_weight_bold,
     marginBottom: theme.spacing_6,
   },
-  socialButton: {
+  iconButton: {
     borderColor: theme.blue_jay_gray_2,
     borderRadius: theme.radius_4,
     borderStyle: 'solid',
@@ -20,7 +20,7 @@ const AuthStyles = StyleSheet.create({
     marginBottom: theme.spacing_4,
     paddingVertical: theme.spacing_1,
   },
-  socialButtonText: {
+  iconButtonText: {
     alignSelf: 'center',
     fontWeight: theme.font_weight_bold,
   },
