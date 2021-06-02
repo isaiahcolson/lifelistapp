@@ -1,10 +1,13 @@
 import React, {useContext, useState} from 'react';
 import {Text, View} from 'react-native';
 
+import {AuthContext} from '../navigation/AuthProvider';
 import FormButton from '../components/FormComponents/FormButton';
 import FormInput from '../components/FormComponents/FormInput';
 import SocialButton from '../components/FormComponents/SocialButton';
-import {AuthContext} from '../navigation/AuthProvider';
+import AuthStyles from '../styles/AuthStyles';
+import FormStyles from '../styles/FormStyles';
+import styles from '../styles/styles';
 
 const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState();
@@ -13,43 +16,53 @@ const SignupScreen = ({navigation}) => {
   const {googleLogin, register} = useContext(AuthContext);
 
   return (
-    <View>
-      <Text>Create an account.</Text>
+    <View style={styles.standardScreen}>
+      <Text style={AuthStyles.pageTitle}>Sign Up</Text>
 
-      <FormInput
-        autoCapitalize="none"
-        autoCorrect={false}
-        keyboardType="email-address"
-        labelValue={email}
-        onChangeText={userEmail => {
-          setEmail(userEmail);
-        }}
-        placeholderText="Email"
-      />
+      <View style={FormStyles.formGroup}>
+        <Text style={FormStyles.inputLabel}>Email</Text>
+        <FormInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          labelValue={email}
+          onChangeText={userEmail => {
+            setEmail(userEmail);
+          }}
+          style={FormStyles.fullWidthInput}
+        />
 
-      <FormInput
-        labelValue={password}
-        onChangeText={userPassword => {
-          setPassword(userPassword);
-        }}
-        placeholderText="Password"
-        secureTextEntry={true}
-      />
+        <Text style={FormStyles.inputLabel}>Password</Text>
+        <FormInput
+          labelValue={password}
+          onChangeText={userPassword => {
+            setPassword(userPassword);
+          }}
+          secureTextEntry={true}
+          style={FormStyles.fullWidthInput}
+        />
+      </View>
 
       <FormButton
         buttonTitle="Sign Up"
+        buttonStyle={FormStyles.fullWidthButton}
         onPress={() => register(email, password)}
       />
 
       <SocialButton
         buttonTitle="Sign up with Google"
         onPress={() => googleLogin()}
+        buttonStyle={AuthStyles.socialButton}
       />
 
-      <FormButton
-        buttonTitle="Have an account? Sign in"
-        onPress={() => navigation.navigate('Sign In')}
-      />
+      <View style={FormStyles.inlineButtonGroup}>
+        <Text>Have an account? </Text>
+        <FormButton
+          buttonTitle="Sign in"
+          onPress={() => navigation.navigate('Sign In')}
+          buttonStyle={FormStyles.inlineButton}
+        />
+      </View>
     </View>
   );
 };
