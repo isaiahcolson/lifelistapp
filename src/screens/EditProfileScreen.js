@@ -1,20 +1,10 @@
 import React, {useState} from 'react';
-// import firestore from '@react-native-firebase/firestore';
 import {Text, View} from 'react-native';
 
 import {useAuth} from '../navigation/AuthProvider';
 import FormInput from '../components/FormComponents/FormInput';
 import FormButton from '../components/FormComponents/FormButton';
 import FormStyles from '../styles/FormStyles';
-
-// TODO adding firestore
-// const usersCollection = firestore()
-//   .collection('users')
-//   .doc('0gCM4BkWZLCkLt01OPOr')
-//   .get()
-//   .then(documentSnapshot => {
-//     console.log('User data: ', documentSnapshot.data());
-//   });
 
 const EditProfileScreen = ({navigation}) => {
   const [displayName, setDisplayName] = useState('');
