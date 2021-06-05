@@ -1,51 +1,103 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
-export const AuthContext = createContext();
+export const authContext = createContext();
 
-export const AuthProvider = ({children}) => {
+export function ProvideAuth({children}) {
+  const providedAuth = useProvideAuth();
+  return (
+    <authContext.Provider value={providedAuth}>{children}</authContext.Provider>
+  );
+}
+
+export const useAuth = () => {
+  return useContext(authContext);
+};
+
+function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-        setUser,
-        login: async (email, password) => {
-          try {
-            await auth().signInWithEmailAndPassword(email, password);
-          } catch (error) {
-            console.log(error);
-          }
-        },
-        googleLogin: async () => {
-          try {
-            const {idToken} = await GoogleSignin.signIn();
-            const googleCredential =
-              auth.GoogleAuthProvider.credential(idToken);
+  const googleLogin = async () => {
+    try {
+      const {idToken} = await GoogleSignin.signIn();
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      await auth().signInWithCredential(googleCredential);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-            await auth().signInWithCredential(googleCredential);
-          } catch (error) {
-            console.log(error);
-          }
-        },
-        register: async (email, password) => {
-          try {
-            await auth().createUserWithEmailAndPassword(email, password);
-          } catch (error) {
-            console.log(error);
-          }
-        },
-        logout: async () => {
-          try {
-            await auth().signOut();
-          } catch (error) {
-            console.log(error);
-          }
-        },
-      }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+  const login = (email, password) => {
+    return auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
+        setUser(response.user);
+        return response.user;
+      });
+  };
+
+  const logout = () => {
+    return auth()
+      .signOut()
+      .then(() => {
+        setUser(false);
+      });
+  };
+
+  const signup = (email, password) => {
+    return auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(response => {
+        setUser(response.user);
+        return response.user;
+      });
+  };
+
+  const updateUser = async newValues => {
+    try {
+      await auth().currentUser.updateProfile(newValues);
+      await setUser(auth().currentUser);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const sendPasswordResetEmail = email => {
+    return auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        return true;
+      });
+  };
+
+  const confirmPasswordReset = (code, password) => {
+    return auth()
+      .confirmPasswordReset(code, password)
+      .then(() => {
+        return true;
+      });
+  };
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(givenUser => {
+      if (givenUser) {
+        setUser(givenUser);
+      } else {
+        setUser(false);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  return {
+    user,
+    googleLogin,
+    login,
+    logout,
+    updateUser,
+    signup,
+    sendPasswordResetEmail,
+    confirmPasswordReset,
+  };
+}

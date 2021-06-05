@@ -1,16 +1,19 @@
-import React, {useContext} from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
+import {Pressable, Text, View} from 'react-native';
 
-import {AuthContext} from '../navigation/AuthProvider';
+import {useAuth} from '../navigation/AuthProvider';
 import FormButton from '../components/FormComponents/FormButton';
 
-const ProfileScreen = () => {
-  const {logout} = useContext(AuthContext);
+const ProfileScreen = ({navigation}) => {
+  const {user, logout} = useAuth();
 
   return (
     <View>
-      <Text>Profile screen</Text>
-      <FormButton buttonTitle="Log out" onPress={() => logout()} />
+      <Text>{user.displayName ? user.displayName : ''}</Text>
+      <Pressable onPress={() => navigation.push('Edit Profile')}>
+        <Text>Edit Profile</Text>
+      </Pressable>
+      <FormButton buttonTitle="Log out" onPress={logout} />
     </View>
   );
 };

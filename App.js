@@ -1,9 +1,14 @@
 import React from 'react';
 
-import Providers from './src/navigation';
+import Routes from './src/navigation/Routes';
+import {ProvideAuth} from './src/navigation/AuthProvider';
 
 const LifeListApp = () => {
-  return <Providers />;
+  return (
+    <ProvideAuth>
+      <Routes />
+    </ProvideAuth>
+  );
 };
 
 export default LifeListApp;

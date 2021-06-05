@@ -1,12 +1,22 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import {Image, View} from 'react-native';
 
-import theme from '../styles/theme.style';
+import EditProfileScreen from '../screens/EditProfileScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import theme from '../styles/theme.style';
 
 const tabs = createBottomTabNavigator();
+const ProfileStack = createStackNavigator();
+
+const ProfileStackScreen = () => (
+  <ProfileStack.Navigator>
+    <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+    <ProfileStack.Screen name="Edit Profile" component={EditProfileScreen} />
+  </ProfileStack.Navigator>
+);
 
 const TabBar = () => (
   <tabs.Navigator tabBarOptions={{showLabel: false, style: {height: 60}}}>
@@ -33,7 +43,7 @@ const TabBar = () => (
     />
     <tabs.Screen
       name="Profile"
-      component={ProfileScreen}
+      component={ProfileStackScreen}
       options={{
         tabBarIcon: ({focused}) => (
           <View>
