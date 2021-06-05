@@ -42,10 +42,14 @@ git clone git@github.com:isaiahcolson/lifelistapp.git
 
 ```
 npm install
+
+# or you can run
+npm i
 ```
 
 3. You will be missing the dotenv file with the `GOOGLE_TOKEN` value, ask the code owner for that value.
-4. Start the application
+4. You will also be missing the `google-services.json` file and will need to ask the code owner for that.
+5. Start the application
 
 ```
 # if you have npm
@@ -77,6 +81,7 @@ npm run android
 - [React Native Firebase](https://rnfirebase.io/)
 - [React Native Google Sign In](https://github.com/react-native-google-signin/google-signin#project-setup-and-initialization)
 - [React Native dotenv](https://github.com/goatandsheep/react-native-dotenv)
+- [Cloud Firestore](https://rnfirebase.io/firestore/usage)
 
 ### Updating Version
 

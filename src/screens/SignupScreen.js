@@ -1,20 +1,20 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 
-import {AuthContext} from '../navigation/AuthProvider';
+import {useAuth} from '../navigation/AuthProvider';
 import FormButton from '../components/FormComponents/FormButton';
 import FormInput from '../components/FormComponents/FormInput';
 import IconButton from '../components/FormComponents/IconButton';
+import iconList from '../../assets/iconList';
 import AuthStyles from '../styles/AuthStyles';
 import FormStyles from '../styles/FormStyles';
 import styles from '../styles/styles';
-import iconList from '../../assets/iconList';
 
 const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const {googleLogin, register} = useContext(AuthContext);
+  const {googleLogin, signup} = useAuth();
 
   return (
     <View style={styles.standardScreen}>
@@ -47,7 +47,7 @@ const SignupScreen = ({navigation}) => {
       <FormButton
         buttonTitle="Sign Up"
         buttonStyle={FormStyles.fullWidthButton}
-        onPress={() => register(email, password)}
+        onPress={() => signup(email, password)}
       />
 
       <IconButton

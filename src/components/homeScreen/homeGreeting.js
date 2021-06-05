@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
 
+import {useAuth} from '../../navigation/AuthProvider';
 import styles from '../../styles/styles';
-import {AuthContext} from '../../navigation/AuthProvider';
 
 const HomeGreeting = props => {
-  const {user} = useContext(AuthContext);
+  const {user} = useAuth();
 
   const displayFirstName = givenUser => {
     if (givenUser.displayName !== null) {
