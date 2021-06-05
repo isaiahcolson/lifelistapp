@@ -53,7 +53,8 @@ function useProvideAuth() {
         setUser(response.user);
         firestore()
           .collection('users')
-          .add({
+          .doc(response.user.uid)
+          .set({
             displayName: response.user.displayName,
             email: response.user.email,
             emailVerified: response.user.emailVerified,
@@ -79,6 +80,7 @@ function useProvideAuth() {
   const updateUser = async newValues => {
     try {
       await auth().currentUser.updateProfile(newValues);
+      await firestore().collection('users').doc(user.uid).update(newValues);
       setUser(auth().currentUser);
     } catch (error) {
       console.log(error);

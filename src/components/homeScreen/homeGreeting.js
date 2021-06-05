@@ -9,8 +9,8 @@ const HomeGreeting = props => {
 
   const displayFirstName = givenUser => {
     if (givenUser.displayName !== null) {
-      const bothNames = givenUser.displayName.split(' ');
-      return bothNames[0];
+      const splitNames = givenUser.displayName.split(' ');
+      return splitNames[0];
     } else {
       return 'Birder';
     }
