@@ -69,7 +69,7 @@ const EditProfileScreen = ({navigation}) => {
         />
 
         <FormButton
-          buttonStyle={FormStyles.fullWidthButton}
+          buttonStyle={FormStyles.filledButton}
           buttonTitle="Save"
           onPress={() => {
             updateUser(data);

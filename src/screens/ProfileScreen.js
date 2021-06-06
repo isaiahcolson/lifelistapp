@@ -43,9 +43,7 @@ const ProfileScreen = ({navigation}) => {
         <Text style={styles.header2Regular}>
           {user.displayName ? user.displayName : ''}
         </Text>
-        <Text style={styles.smallParagraphRegular}>
-          {user.email ? user.email : ''}
-        </Text>
+        <Text>{user.email ? user.email : ''}</Text>
       </View>
 
       <FormButton
@@ -61,6 +59,7 @@ const ProfileScreen = ({navigation}) => {
         </Text>
         <Text>Joined {displayJoinedDate()}</Text>
         <Text>Favorite bird: {favoriteBird ? favoriteBird : 'Not set'}</Text>
+        {/* TODO: set birder levels */}
         <Text>Novice Birder</Text>
       </View>
 

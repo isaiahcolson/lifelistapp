@@ -23,11 +23,6 @@ const styles = StyleSheet.create({
     fontSize: theme.font_size_3,
     fontWeight: theme.font_weight_bold,
   },
-  smallParagraphRegular: {
-    color: theme.blue_jay_black,
-    fontSize: theme.font_size_2,
-    fontWeight: theme.font_weight_regular,
-  },
   // general styles
   centeredComponent: {
     position: 'absolute',

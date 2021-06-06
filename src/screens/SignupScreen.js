@@ -46,7 +46,7 @@ const SignupScreen = ({navigation}) => {
 
       <FormButton
         buttonTitle="Sign Up"
-        buttonStyle={FormStyles.fullWidthButton}
+        buttonStyle={FormStyles.filledButton}
         onPress={() => signup(email, password)}
       />
 

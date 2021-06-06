@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, Pressable, Text} from 'react-native';
-import FormStyles from '../../styles/FormStyles';
 
 import theme from '../../styles/theme.style';
+import FormStyles from '../../styles/FormStyles';
 
 const RightIconButton = ({buttonIcon, buttonStyle, buttonTitle, ...props}) => {
   return (

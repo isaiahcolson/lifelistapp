@@ -12,7 +12,7 @@ const FormStyles = StyleSheet.create({
   formScreen: {
     justifyContent: 'space-between',
   },
-  fullWidthButton: {
+  filledButton: {
     backgroundColor: theme.blue_jay_blue,
     borderRadius: theme.radius_4,
     textAlign: 'center',
