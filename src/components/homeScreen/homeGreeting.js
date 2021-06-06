@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 import {useAuth} from '../../navigation/AuthProvider';
 import styles from '../../styles/styles';
 
-const HomeGreeting = props => {
+const HomeGreeting = () => {
   const {user} = useAuth();
 
   const displayFirstName = givenUser => {

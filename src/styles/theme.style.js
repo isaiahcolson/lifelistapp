@@ -39,4 +39,6 @@ export default {
   flex_one: 1,
   // border radius
   radius_4: 4,
+  // alignment
+  center: 'center',
 };

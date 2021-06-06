@@ -1,15 +1,37 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Image, View} from 'react-native';
+import {Image, Pressable, View} from 'react-native';
 
-import EditProfileScreen from '../screens/EditProfileScreen';
 import HomeScreen from '../screens/HomeScreen';
+import AddBirdScreen from '../screens/AddBirdScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
+import iconList from '../../assets/iconList';
 import theme from '../styles/theme.style';
 
 const tabs = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
+
+const CustomTabBarButton = ({children, onPress}) => (
+  <Pressable
+    onPress={onPress}
+    style={{
+      justifyContent: theme.center,
+      alignItems: theme.center,
+      top: -theme.spacing_2,
+    }}>
+    <View
+      style={{
+        height: theme.spacing_6,
+        width: theme.spacing_6,
+        borderRadius: theme.spacing_3,
+        backgroundColor: theme.blue_jay_blue,
+      }}>
+      {children}
+    </View>
+  </Pressable>
+);
 
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
@@ -35,7 +57,7 @@ const TabBar = () => (
         tabBarIcon: ({focused}) => (
           <View>
             <Image
-              source={require('../../assets/icons/icon-home.png')}
+              source={iconList.home}
               resizeMode="contain"
               style={{
                 width: theme.font_size_7,
@@ -49,6 +71,26 @@ const TabBar = () => (
         ),
       }}
     />
+
+    <tabs.Screen
+      name="Add Bird"
+      component={AddBirdScreen}
+      options={{
+        tabBarIcon: () => (
+          <Image
+            source={iconList.plus}
+            resizeMode="contain"
+            style={{
+              width: theme.font_size_9,
+              height: theme.font_size_9,
+              tintColor: theme.blue_jay_white,
+            }}
+          />
+        ),
+        tabBarButton: props => <CustomTabBarButton {...props} />,
+      }}
+    />
+
     <tabs.Screen
       name="Profile"
       component={ProfileStackScreen}
@@ -56,7 +98,7 @@ const TabBar = () => (
         tabBarIcon: ({focused}) => (
           <View>
             <Image
-              source={require('../../assets/icons/icon-profile.png')}
+              source={iconList.profile}
               resizeMode="contain"
               style={{
                 width: theme.font_size_7,

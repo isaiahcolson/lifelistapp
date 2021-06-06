@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: theme.center,
+    alignItems: theme.center,
   },
   centeredScreen: {
     backgroundColor: theme.blue_jay_white,
     flex: theme.flex_one,
-    justifyContent: 'center',
+    justifyContent: theme.center,
     padding: theme.spacing_5,
   },
   standardScreen: {
