@@ -14,7 +14,7 @@ const AuthStyles = StyleSheet.create({
     borderColor: theme.blue_jay_gray_2,
     borderRadius: theme.radius_4,
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: 2,
     flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: theme.spacing_4,

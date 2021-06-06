@@ -14,7 +14,7 @@ const HomeScreen = () => {
         padding: theme.spacing_5,
       }}>
       <HomeGreeting name="Kenny" />
-      <LifeListCount count="50" />
+      <LifeListCount count="51" />
     </View>
   );
 };

@@ -17,7 +17,7 @@ const SigninScreen = ({navigation}) => {
   const {googleLogin, login} = useAuth();
 
   return (
-    <View style={styles.standardScreen}>
+    <View style={styles.centeredScreen}>
       <Text style={AuthStyles.pageTitle}>Sign In</Text>
 
       <View style={FormStyles.formGroup}>
