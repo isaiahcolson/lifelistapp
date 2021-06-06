@@ -15,7 +15,7 @@ const FormStyles = StyleSheet.create({
   filledButton: {
     backgroundColor: theme.blue_jay_blue,
     borderRadius: theme.radius_4,
-    textAlign: 'center',
+    textAlign: theme.center,
     color: theme.blue_jay_white,
     fontWeight: theme.font_weight_bold,
     marginBottom: theme.spacing_2,
@@ -38,7 +38,7 @@ const FormStyles = StyleSheet.create({
     borderRadius: theme.radius_4,
     borderStyle: 'solid',
     borderWidth: 2,
-    textAlign: 'center',
+    textAlign: theme.center,
     color: theme.blue_jay_blue,
     fontWeight: theme.font_weight_bold,
     marginBottom: theme.spacing_2,
@@ -53,12 +53,12 @@ const FormStyles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   inlineButtonGroup: {
-    alignSelf: 'center',
+    alignSelf: theme.center,
     flexDirection: 'row',
   },
   inlineIcon: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: theme.center,
   },
   inputLabel: {
     color: theme.blue_jay_black,

@@ -4,7 +4,7 @@ import theme from './theme.style';
 
 const AuthStyles = StyleSheet.create({
   pageTitle: {
-    alignSelf: 'center',
+    alignSelf: theme.center,
     color: theme.blue_jay_black,
     fontSize: theme.font_size_5,
     fontWeight: theme.font_weight_bold,
@@ -16,12 +16,12 @@ const AuthStyles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 2,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: theme.center,
     marginBottom: theme.spacing_4,
     paddingVertical: theme.spacing_1,
   },
   iconButtonText: {
-    alignSelf: 'center',
+    alignSelf: theme.center,
     fontWeight: theme.font_weight_bold,
   },
 });
