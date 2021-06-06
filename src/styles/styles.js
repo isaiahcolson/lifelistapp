@@ -8,15 +8,20 @@ const styles = StyleSheet.create({
     fontSize: theme.font_size_13,
     fontWeight: theme.font_weight_bold,
   },
-  mediumHeaderBold: {
+  header2Bold: {
     color: theme.blue_jay_black,
-    fontSize: theme.font_size_6,
+    fontSize: theme.font_size_5,
     fontWeight: theme.font_weight_bold,
   },
-  mediumHeaderRegular: {
+  header2Regular: {
     color: theme.blue_jay_black,
-    fontSize: theme.font_size_6,
+    fontSize: theme.font_size_5,
     fontWeight: theme.font_weight_regular,
+  },
+  header3Bold: {
+    color: theme.blue_jay_black,
+    fontSize: theme.font_size_3,
+    fontWeight: theme.font_weight_bold,
   },
   smallParagraphRegular: {
     color: theme.blue_jay_black,
@@ -33,10 +38,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  standardScreen: {
+  centeredScreen: {
     backgroundColor: theme.blue_jay_white,
     flex: theme.flex_one,
     justifyContent: 'center',
+    padding: theme.spacing_5,
+  },
+  standardScreen: {
+    backgroundColor: theme.blue_jay_white,
+    flex: theme.flex_one,
     padding: theme.spacing_5,
   },
 });

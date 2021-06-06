@@ -18,10 +18,8 @@ const HomeGreeting = props => {
 
   return (
     <View>
-      <Text style={styles.mediumHeaderBold}>
-        Hi {displayFirstName(user)}, 👋
-      </Text>
-      <Text style={styles.mediumHeaderRegular}>here's your Life List</Text>
+      <Text style={styles.header2Bold}>Hi {displayFirstName(user)}, 👋</Text>
+      <Text style={styles.header2Regular}>here's your Life List</Text>
     </View>
   );
 };
