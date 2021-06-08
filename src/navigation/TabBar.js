@@ -7,10 +7,12 @@ import HomeScreen from '../screens/HomeScreen';
 import AddBirdScreen from '../screens/AddBirdScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
+import LifeListScreen from '../screens/LifeListScreen';
 import iconList from '../../assets/iconList';
 import theme from '../styles/theme.style';
 
 const tabs = createBottomTabNavigator();
+const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 
 const CustomTabBarButton = ({children, onPress}) => (
@@ -33,6 +35,21 @@ const CustomTabBarButton = ({children, onPress}) => (
   </Pressable>
 );
 
+const HomeStackScreen = () => (
+  <HomeStack.Navigator>
+    <HomeStack.Screen
+      name="Home"
+      component={HomeScreen}
+      options={{headerShown: false}}
+    />
+    <HomeStack.Screen
+      name="Life List"
+      component={LifeListScreen}
+      options={{title: ''}}
+    />
+  </HomeStack.Navigator>
+);
+
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
@@ -45,6 +62,11 @@ const ProfileStackScreen = () => (
       component={EditProfileScreen}
       options={{title: ''}}
     />
+    <ProfileStack.Screen
+      name="Life List"
+      component={LifeListScreen}
+      options={{title: ''}}
+    />
   </ProfileStack.Navigator>
 );
 
@@ -52,7 +74,7 @@ const TabBar = () => (
   <tabs.Navigator tabBarOptions={{showLabel: false, style: {height: 60}}}>
     <tabs.Screen
       name="Home"
-      component={HomeScreen}
+      component={HomeStackScreen}
       options={{
         tabBarIcon: ({focused}) => (
           <View>

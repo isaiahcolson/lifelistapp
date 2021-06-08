@@ -69,13 +69,11 @@ const ProfileScreen = ({navigation}) => {
         </Text>
         {/* TODO: add recentBirds component below */}
         <Text>No birds added yet.</Text>
-        {/* eslint-disable no-alert */}
         <RightIconButton
           buttonTitle="View Full Life List"
-          onPress={() => alert('TODO')}
+          onPress={() => navigation.push('Life List')}
           buttonIcon={iconList.rightChevron}
         />
-        {/* eslint-enable no-alert */}
       </View>
 
       <FormButton
