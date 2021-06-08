@@ -7,7 +7,7 @@ import theme from '../styles/theme.style';
 import HomeGreeting from '../components/homeScreen/homeGreeting';
 import LifeListCount from '../components/homeScreen/LifeListCount';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const {user} = useAuth();
   const [lifeListCount, setLifeListCount] = useState();
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
@@ -12,23 +12,22 @@ import FormStyles from '../styles/FormStyles';
 const EditProfileScreen = ({navigation}) => {
   const {user, updateUser} = useAuth();
   const [displayName, setDisplayName] = useState(user.displayName);
-  const [currentFavorite, setCurrentFavorite] = useState();
-  const [favoriteBird, setFavoriteBird] = useState(currentFavorite);
+  const [favoriteBird, setFavoriteBird] = useState(null);
 
-  firestore()
-    .collection('users')
-    .doc(user.uid)
-    .get()
-    .then(doc => {
-      setCurrentFavorite(doc.data().birdData.favoriteBird);
-    });
+  useEffect(() => {
+    firestore()
+      .collection('users')
+      .doc(user.uid)
+      .get()
+      .then(doc => {
+        setFavoriteBird(doc.data().birdData.favoriteBird);
+      });
+  }, [user.uid]);
 
   const data = {
     displayName: displayName,
     'birdData.favoriteBird': favoriteBird,
   };
-
-  // TODO: logging favoriteBird is undefined until a value is entered
 
   return (
     <View style={[styles.standardScreen, FormStyles.formScreen]}>
@@ -51,7 +50,7 @@ const EditProfileScreen = ({navigation}) => {
         <Text style={FormStyles.inputLabel}>Favorite Bird</Text>
         <FormInput
           maxLength={64}
-          defaultValue={currentFavorite}
+          defaultValue={favoriteBird}
           style={[FormStyles.fullWidthInput, {marginBottom: theme.spacing_2}]}
           onChangeText={userFavoriteBird => {
             setFavoriteBird(userFavoriteBird);
