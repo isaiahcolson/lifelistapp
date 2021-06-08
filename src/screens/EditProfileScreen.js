@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 
 import {useAuth} from '../navigation/AuthProvider';
 import FormInput from '../components/FormComponents/FormInput';
@@ -10,19 +9,18 @@ import styles from '../styles/styles';
 import FormStyles from '../styles/FormStyles';
 
 const EditProfileScreen = ({navigation}) => {
-  const {user, updateUser} = useAuth();
+  const {user, userData, updateUser} = useAuth();
   const [displayName, setDisplayName] = useState(user.displayName);
   const [favoriteBird, setFavoriteBird] = useState(null);
 
   useEffect(() => {
-    firestore()
-      .collection('users')
-      .doc(user.uid)
-      .get()
-      .then(doc => {
-        setFavoriteBird(doc.data().birdData.favoriteBird);
-      });
-  }, [user.uid]);
+    if (userData?.birdData?.favoriteBird) {
+      const current = userData.birdData.favoriteBird;
+      setFavoriteBird(current);
+    } else {
+      setFavoriteBird(null);
+    }
+  }, [user.uid, userData.birdData.favoriteBird]);
 
   const data = {
     displayName: displayName,

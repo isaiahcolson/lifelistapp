@@ -18,6 +18,7 @@ export const useAuth = () => {
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   const googleLogin = async () => {
     try {
@@ -34,6 +35,13 @@ function useProvideAuth() {
       .signInWithEmailAndPassword(email, password)
       .then(response => {
         setUser(response.user);
+        firestore()
+          .collection('users')
+          .doc(response.user.uid)
+          .get()
+          .then(doc => {
+            setUserData(doc.data());
+          });
         return response.user;
       });
   };
@@ -107,6 +115,12 @@ function useProvideAuth() {
     const unsubscribe = auth().onAuthStateChanged(givenUser => {
       if (givenUser) {
         setUser(givenUser);
+        firestore()
+          .collection('users')
+          .doc(givenUser.uid)
+          .onSnapshot(doc => {
+            setUserData(doc.data());
+          });
       } else {
         setUser(false);
       }
@@ -116,6 +130,7 @@ function useProvideAuth() {
 
   return {
     user,
+    userData,
     googleLogin,
     login,
     logout,
