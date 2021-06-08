@@ -1,27 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 
 import {useAuth} from '../navigation/AuthProvider';
 import theme from '../styles/theme.style';
 import styles from '../styles/styles';
 
 const LifeListScreen = () => {
-  const {user} = useAuth();
-  const [birdList, setBirdList] = useState([]);
+  const {userData} = useAuth();
 
-  useEffect(() => {
-    firestore()
-      .collection('users')
-      .doc(user.uid)
-      .get()
-      .then(doc => {
-        setBirdList(doc.data().birdData.lifeList.reverse());
-      });
-  });
+  const retrievedList = () => {
+    if (userData?.birdData?.lifeList?.length) {
+      const list = userData.birdData.lifeList;
+      return list;
+    } else {
+      return '';
+    }
+  };
 
-  const displayBird = birdList.map(bird => (
-    <Text key={birdList.indexOf(bird)}>{bird.birdName}</Text>
+  const displayBird = retrievedList().map(bird => (
+    <Text key={retrievedList().indexOf(bird)}>{bird.birdName}</Text>
   ));
 
   return (
@@ -29,7 +26,7 @@ const LifeListScreen = () => {
       <Text style={[styles.header2Bold, {marginBottom: theme.spacing_6}]}>
         Life List Screen
       </Text>
-      <View>{displayBird}</View>
+      <View>{displayBird.reverse()}</View>
     </View>
   );
 };

@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View} from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 
 import {useAuth} from '../navigation/AuthProvider';
 import theme from '../styles/theme.style';
@@ -8,15 +7,15 @@ import HomeGreeting from '../components/homeScreen/homeGreeting';
 import LifeListCount from '../components/homeScreen/LifeListCount';
 
 const HomeScreen = ({navigation}) => {
-  const {user} = useAuth();
-  const [lifeListCount, setLifeListCount] = useState();
+  const {userData} = useAuth();
 
-  firestore()
-    .collection('users')
-    .doc(user.uid)
-    .onSnapshot(doc => {
-      setLifeListCount(doc.data().birdData.lifeList.length);
-    });
+  const listCount = () => {
+    if (userData?.birdData?.lifeList?.length) {
+      return userData.birdData.lifeList.length;
+    } else {
+      return 0;
+    }
+  };
 
   return (
     <View
@@ -26,7 +25,7 @@ const HomeScreen = ({navigation}) => {
         padding: theme.spacing_5,
       }}>
       <HomeGreeting name="Kenny" />
-      <LifeListCount count={lifeListCount} />
+      <LifeListCount count={listCount()} />
     </View>
   );
 };

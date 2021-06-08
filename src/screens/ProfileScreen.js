@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 import packageJson from '../../package.json';
 
 import {useAuth} from '../navigation/AuthProvider';
@@ -12,18 +11,10 @@ import styles from '../styles/styles';
 import FormStyles from '../styles/FormStyles';
 
 const ProfileScreen = ({navigation}) => {
-  const {user, logout} = useAuth();
-  const [favoriteBird, setFavoriteBird] = useState();
-
-  firestore()
-    .collection('users')
-    .doc(user.uid)
-    .onSnapshot(doc => {
-      setFavoriteBird(doc.data().birdData.favoriteBird);
-    });
+  const {user, userData, logout} = useAuth();
 
   const displayJoinedDate = () => {
-    if (user.metadata.creationTime) {
+    if (user?.metadata?.creationTime) {
       const userDate = Date(user.metadata.creationTime).split(' ');
       const month = userDate[1];
       const year = userDate[3];
@@ -58,7 +49,12 @@ const ProfileScreen = ({navigation}) => {
           Account
         </Text>
         <Text>Joined {displayJoinedDate()}</Text>
-        <Text>Favorite bird: {favoriteBird ? favoriteBird : 'Not set'}</Text>
+        <Text>
+          Favorite bird:{' '}
+          {userData?.birdData?.favoriteBird
+            ? userData.birdData.favoriteBird
+            : 'Not set'}
+        </Text>
         {/* TODO: set birder levels */}
         <Text>Novice Birder</Text>
       </View>
