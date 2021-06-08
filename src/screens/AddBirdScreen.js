@@ -22,6 +22,10 @@ const AddBirdScreen = ({navigation}) => {
     'birdData.lifeList': firestore.FieldValue.arrayUnion(birdData),
   };
 
+  const clearInput = () => {
+    setNewBird('');
+  };
+
   return (
     <View style={[styles.standardScreen, FormStyles.formScreen]}>
       <View>
@@ -32,6 +36,7 @@ const AddBirdScreen = ({navigation}) => {
         <Text style={FormStyles.inputLabel}>Bird Name</Text>
         <FormInput
           autoCapitalize="words"
+          value={newBird}
           maxLength={64}
           style={[FormStyles.fullWidthInput, {marginBottom: theme.spacing_2}]}
           onChangeText={addedBird => {
@@ -55,6 +60,7 @@ const AddBirdScreen = ({navigation}) => {
           buttonTitle="Add"
           onPress={() => {
             updateUser(data);
+            clearInput();
             navigation.navigate('Home');
           }}
         />
