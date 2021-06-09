@@ -40,7 +40,7 @@ const ProfileScreen = ({navigation}) => {
   };
 
   const displayRecent = recentBirds().map(bird => (
-    <View key={recentBirds().indexOf(bird)} style={{flexDirection: 'row'}}>
+    <View key={recentBirds().indexOf(bird)} style={{flexDirection: theme.row}}>
       <Text>{birdIndex(recentBirds().indexOf(bird))}. </Text>
       <Text>{bird.birdName}</Text>
     </View>
