@@ -1,4 +1,5 @@
 const iconList = {
+  delete: require('./icons/icon-delete.png'),
   googleIcon: require('./icons/icon-google.png'),
   home: require('./icons/icon-home.png'),
   plus: require('./icons/icon-plus.png'),
