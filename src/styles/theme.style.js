@@ -1,10 +1,14 @@
 export default {
   /* COLORS */
+  // values
   blue_jay_white: '#FFFFFF',
   blue_jay_blue: '#1E5BE3',
   blue_jay_black: '#1C1F15',
   blue_jay_gray_1: '#F0F1F7',
   blue_jay_gray_2: '#C0C3D1',
+  cardinal_red: '#EF2E12',
+  // opacity
+  fifty: 0.5,
 
   /* TYPOGRAPHY */
   // sizes
@@ -25,6 +29,8 @@ export default {
   font_weight_regular: '400',
   font_weight_semibold: '500',
   font_weight_bold: '700',
+  // styles
+  italic: 'italic',
 
   /* SIZES */
   // spacing
@@ -42,4 +48,5 @@ export default {
   // alignment
   center: 'center',
   row: 'row',
+  space_between: 'space-between',
 };
