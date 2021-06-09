@@ -24,6 +24,28 @@ const ProfileScreen = ({navigation}) => {
     }
   };
 
+  const recentBirds = () => {
+    if (userData?.birdData?.lifeList?.length) {
+      return userData.birdData.lifeList
+        .slice(Math.max(userData.birdData.lifeList.length - 5, 1))
+        .reverse();
+    }
+  };
+
+  const birdIndex = mapIndex => {
+    if (userData?.birdData?.lifeList?.length) {
+      const lifeListCount = userData.birdData.lifeList.length;
+      return lifeListCount - mapIndex;
+    }
+  };
+
+  const displayRecent = recentBirds().map(bird => (
+    <View key={recentBirds().indexOf(bird)} style={{flexDirection: theme.row}}>
+      <Text>{birdIndex(recentBirds().indexOf(bird))}. </Text>
+      <Text>{bird.birdName}</Text>
+    </View>
+  ));
+
   return (
     <View style={styles.standardScreen}>
       <Text style={[styles.header2Bold, {marginBottom: theme.spacing_6}]}>
@@ -63,8 +85,7 @@ const ProfileScreen = ({navigation}) => {
         <Text style={[styles.header3Bold, {marginBottom: theme.spacing_half}]}>
           Birds
         </Text>
-        {/* TODO: add recentBirds component below */}
-        <Text>No birds added yet.</Text>
+        <View>{displayRecent}</View>
         <RightIconButton
           buttonTitle="View Full Life List"
           onPress={() => navigation.push('Life List')}

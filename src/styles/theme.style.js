@@ -41,4 +41,5 @@ export default {
   radius_4: 4,
   // alignment
   center: 'center',
+  row: 'row',
 };

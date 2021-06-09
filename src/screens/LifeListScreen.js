@@ -10,8 +10,7 @@ const LifeListScreen = () => {
 
   const retrievedList = () => {
     if (userData?.birdData?.lifeList?.length) {
-      const list = userData.birdData.lifeList;
-      return list;
+      return userData.birdData.lifeList;
     } else {
       return '';
     }
