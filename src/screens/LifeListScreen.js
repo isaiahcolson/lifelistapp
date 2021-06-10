@@ -1,13 +1,22 @@
-import React from 'react';
-import {Image, ScrollView, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Image, Modal, Pressable, ScrollView, Text, View} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 
 import {useAuth} from '../navigation/AuthProvider';
+import FormButton from '../components/FormComponents/FormButton';
 import iconList from '../../assets/iconList';
 import theme from '../styles/theme.style';
 import styles from '../styles/styles';
+import FormStyles from '../styles/FormStyles';
 
 const LifeListScreen = () => {
-  const {userData} = useAuth();
+  const {userData, updateUser} = useAuth();
+  const [modalVisible, setModalVisible] = useState(false);
+  const [deleteBird, setDeleteBird] = useState();
+
+  const data = {
+    'birdData.lifeList': firestore.FieldValue.arrayRemove(deleteBird),
+  };
 
   const retrievedList = () => {
     if (userData?.birdData?.lifeList?.length) {
@@ -17,9 +26,9 @@ const LifeListScreen = () => {
     }
   };
 
-  const birdAddedDate = () => {
+  const birdAddedDate = bird => {
     if (userData?.birdData?.lifeList?.length) {
-      const birdDate = Date(retrievedList.dateAdded).split(' ');
+      const birdDate = bird.dateAdded.split(' ');
       const month = birdDate[1];
       const date = birdDate[2];
       const year = birdDate[3];
@@ -52,21 +61,71 @@ const LifeListScreen = () => {
             color: theme.blue_jay_black,
             opacity: theme.fifty,
           }}>
-          {birdAddedDate()}
+          {birdAddedDate(bird)}
         </Text>
       </View>
-      <Image
-        source={iconList.delete}
-        resizeMode="contain"
-        style={{
-          tintColor: theme.cardinal_red,
-          width: theme.font_size_5,
-          height: theme.font_size_5,
-          marginRight: theme.spacing_2,
+      <Pressable
+        onPress={() => {
+          setModalVisible(true);
+          setDeleteBird(bird);
         }}
-      />
+        style={{
+          paddingVertical: theme.spacing_2,
+          paddingLeft: theme.spacing_2,
+        }}>
+        <Image
+          source={iconList.delete}
+          resizeMode="contain"
+          style={{
+            tintColor: theme.cardinal_red,
+            width: theme.font_size_5,
+            height: theme.font_size_5,
+            marginRight: theme.spacing_2,
+          }}
+        />
+      </Pressable>
     </View>
   ));
+
+  const DeleteModal = () => (
+    <View>
+      <Modal
+        animationType="slide"
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredScreen}>
+          <View style={styles.modalView}>
+            <Text
+              style={{textAlign: theme.center, marginBottom: theme.spacing_3}}>
+              Are you sure you'd like to remove the {deleteBird?.birdName} from
+              your Life List?
+            </Text>
+            <View style={FormStyles.buttonGroup}>
+              <FormButton
+                buttonStyle={FormStyles.ghostButton}
+                buttonTitle="Cancel"
+                onPress={() => setModalVisible(!modalVisible)}
+              />
+
+              <FormButton
+                buttonStyle={[
+                  FormStyles.filledButton,
+                  {backgroundColor: theme.cardinal_red},
+                ]}
+                buttonTitle="Remove"
+                onPress={() => {
+                  updateUser(data);
+                  setModalVisible(!modalVisible);
+                }}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </View>
+  );
 
   return (
     <ScrollView>
@@ -74,6 +133,7 @@ const LifeListScreen = () => {
         <Text style={[styles.header2Bold, {marginBottom: theme.spacing_6}]}>
           Your Life List
         </Text>
+        <DeleteModal />
         <View>{displayBird.reverse()}</View>
       </View>
     </ScrollView>
