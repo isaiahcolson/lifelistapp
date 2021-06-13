@@ -39,6 +39,12 @@ const styles = StyleSheet.create({
     justifyContent: theme.center,
     padding: theme.spacing_5,
   },
+  listItem: {
+    borderBottomColor: theme.blue_jay_gray_1,
+    borderBottomWidth: 1,
+    paddingBottom: theme.spacing_2,
+    marginBottom: theme.spacing_2,
+  },
   standardScreen: {
     backgroundColor: theme.blue_jay_white,
     flex: theme.flex_one,

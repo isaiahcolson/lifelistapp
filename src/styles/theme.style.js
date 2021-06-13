@@ -2,7 +2,7 @@ export default {
   /* COLORS */
   // values
   blue_jay_white: '#FFFFFF',
-  blue_jay_blue: '#1E5BE3',
+  blue_jay_blue: '#2C8741',
   blue_jay_black: '#1C1F15',
   blue_jay_gray_1: '#F0F1F7',
   blue_jay_gray_2: '#C0C3D1',
@@ -34,6 +34,7 @@ export default {
 
   /* SIZES */
   // spacing
+  spacing_zero: 0,
   spacing_half: 4,
   spacing_1: 8,
   spacing_2: 16,

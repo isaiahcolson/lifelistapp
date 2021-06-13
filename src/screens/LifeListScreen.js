@@ -97,14 +97,22 @@ const LifeListScreen = () => {
         }}>
         <View style={styles.centeredScreen}>
           <View style={styles.modalView}>
+            <Text style={{textAlign: theme.center}}>
+              Are you sure you'd like to remove the
+            </Text>
             <Text
-              style={{textAlign: theme.center, marginBottom: theme.spacing_3}}>
-              Are you sure you'd like to remove the {deleteBird?.birdName} from
-              your Life List?
+              style={{textAlign: theme.center, marginBottom: theme.spacing_6}}>
+              {deleteBird?.birdName} from your Life List?
             </Text>
             <View style={FormStyles.buttonGroup}>
               <FormButton
-                buttonStyle={FormStyles.ghostButton}
+                buttonStyle={[
+                  FormStyles.inlineButton,
+                  {
+                    color: theme.blue_jay_black,
+                    paddingLeft: theme.spacing_3,
+                  },
+                ]}
                 buttonTitle="Cancel"
                 onPress={() => setModalVisible(!modalVisible)}
               />
@@ -112,7 +120,10 @@ const LifeListScreen = () => {
               <FormButton
                 buttonStyle={[
                   FormStyles.filledButton,
-                  {backgroundColor: theme.cardinal_red},
+                  {
+                    backgroundColor: theme.cardinal_red,
+                    marginBottom: theme.spacing_zero,
+                  },
                 ]}
                 buttonTitle="Remove"
                 onPress={() => {

@@ -5,6 +5,7 @@ const FormStyles = StyleSheet.create({
   buttonGroup: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   formGroup: {
     marginBottom: theme.spacing_6,
