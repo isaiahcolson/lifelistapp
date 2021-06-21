@@ -60,3 +60,4 @@ buck-out/
 
 android/app/google-services.json
 .env
+ios/GoogleService-Info.plist
