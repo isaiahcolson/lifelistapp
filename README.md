@@ -47,9 +47,16 @@ npm install
 npm i
 ```
 
-3. You will be missing the dotenv file with the `GOOGLE_TOKEN` value, ask the code owner for that value.
-4. You will also be missing the `google-services.json` file and will need to ask the code owner for that.
-5. Start the application
+3. For iOS
+
+```
+cd ios
+pod install
+```
+
+4. You will be missing the dotenv file with the `GOOGLE_TOKEN` value, ask the code owner for that value.
+5. You will also be missing the `google-services.json` file and will need to ask the code owner for that.
+6. Start the application
 
 ```
 # if you have npm
